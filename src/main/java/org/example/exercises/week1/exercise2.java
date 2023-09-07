@@ -3,7 +3,7 @@ package org.example.exercises.week1;
 import java.util.Scanner;
 
 public class exercise2 {
-    static Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
