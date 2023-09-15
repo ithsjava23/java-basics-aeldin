@@ -97,10 +97,10 @@ public class App {
             }
         }
 
-        int averagePrice = bestTotalPrice / 4;
+        float averagePrice = (float) bestTotalPrice / 4;
 
-        System.out.printf("Påbörja laddning klockan: %d:00\n", bestStartTime);
-        System.out.printf("Medelpris 4h: %d\n", averagePrice);
+        System.out.printf("Påbörja laddning klockan %d\n", bestStartTime);
+        System.out.printf("Medelpris 4h: %.1f öre/kWh\n", averagePrice);
     }
 
 
