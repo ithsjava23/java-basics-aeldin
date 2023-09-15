@@ -82,7 +82,7 @@ public class App {
 
 
         for (int i = 0; i < prices.length; i++) {
-            System.out.println(sortedHours[i] + "-" + (sortedHours[i] + 1) + ": " + sortedPrices[i] + " öre/kWh");
+            System.out.print("\n" + sortedHours[i] + "-" + (sortedHours[i] + 1) + ": " + sortedPrices[i] + " öre/kWh");
         }
     }
 
@@ -105,9 +105,8 @@ public class App {
 
         int averagePrice = bestTotalPrice / 4;
 
-        System.out.print("\nBästa tid att börja ladda: " + bestStartTime + ":00");
-        System.out.print("\nLägsta totalpris under 4 timmar: " + bestTotalPrice);
-        System.out.print("\nGenomsnittligt pris under dessa 4 timmar: " + averagePrice);
+        System.out.print("\nPåbörja laddning klockan: " + bestStartTime + ":00");
+        System.out.print("\nMedelpris 4h: " + averagePrice);
     }
 
 
@@ -121,6 +120,7 @@ public class App {
         int[] prices = null;
 
     do {
+
         System.out.print("\nElpriser");
         System.out.print("\n========");
         System.out.print("\n1. Inmatning");
