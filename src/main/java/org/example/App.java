@@ -8,18 +8,17 @@ import java.util.Scanner;
 public class App {
 
 
-    public static int[] enterPrices() {
-        Scanner scanner = new Scanner(System.in);
+    public static int[] enterPrices(Scanner scanner) {
+
 
         int[] prices = new int[24];
 
-        System.out.print("\nAnge elpriser för dygnets alla timmar i öre per kWh");
 
         for (int i = 0; i < 24; i++) {
-            System.out.print("\nTimme " + i + "-" + (i + 1) + ": ");
+            System.out.print("Timme " + i + "-" + (i + 1) + ": \n");
             prices[i] = scanner.nextInt();
         }
-
+         scanner.nextLine();
         return prices;
     }
 
@@ -44,9 +43,9 @@ public class App {
 
         double averagePrice = (double) total / prices.length;
 
-        System.out.print("\nLägsta pris: " + minHour + "-" + (minHour + 1) + ", " + minPrice + " öre/kWh");
-        System.out.print("\nHögsta pris: " + maxHour + "-" + (maxHour + 1) + ", " + maxPrice + " öre/kWh");
-        System.out.print("\nMedelpris: " + averagePrice + " öre/kWh\n");
+        System.out.printf("Lägsta pris: %2d-%2d, %d öre/kWh\n" ,minHour, minHour + 1, minPrice );
+        System.out.printf("Högsta pris: %2d-%2d, %d öre/kWh\n" ,maxHour, maxHour + 1, maxPrice);
+        System.out.printf("Medelpris: %.2f öre/kWh\n", averagePrice);
 
 
 
@@ -79,18 +78,13 @@ public class App {
             }
         }
 
-
-
         for (int i = 0; i < prices.length; i++) {
-            System.out.print("\n" + sortedHours[i] + "-" + (sortedHours[i] + 1) + ": " + sortedPrices[i] + " öre/kWh");
+            System.out.printf("%d-%d: %d öre/kWh\n", sortedHours[i], sortedHours[i] + 1, sortedPrices[i]);
         }
     }
 
     public static void findBestChargingTime(int[] prices) {
-        if (prices == null || prices.length < 4) {
-            System.out.print("\nDet finns inte tillräckligt med data för att hitta de billigaste timmarna.");
-            return;
-        }
+
 
         int bestTotalPrice = Integer.MAX_VALUE;
         int bestStartTime = -1;
@@ -105,8 +99,8 @@ public class App {
 
         int averagePrice = bestTotalPrice / 4;
 
-        System.out.print("\nPåbörja laddning klockan: " + bestStartTime + ":00");
-        System.out.print("\nMedelpris 4h: " + averagePrice);
+        System.out.printf("Påbörja laddning klockan: %d:00\n", bestStartTime);
+        System.out.printf("Medelpris 4h: %d\n", averagePrice);
     }
 
 
@@ -121,13 +115,13 @@ public class App {
 
     do {
 
-        System.out.print("\nElpriser");
-        System.out.print("\n========");
-        System.out.print("\n1. Inmatning");
-        System.out.print("\n2. Min, Max och Medel");
-        System.out.print("\n3. Sortera");
-        System.out.print("\n4. Bästa Laddningstid (4h)");
-        System.out.print("\ne. Avsluta\n");
+        System.out.print("Elpriser\n");
+        System.out.print("========\n");
+        System.out.print("1. Inmatning\n");
+        System.out.print("2. Min, Max och Medel\n");
+        System.out.print("3. Sortera\n");
+        System.out.print("4. Bästa Laddningstid (4h)\n");
+        System.out.print("e. Avsluta\n");
 
 
         String input = scanner.next();
@@ -139,18 +133,20 @@ public class App {
             choice= Integer.parseInt(input);
 
         switch (choice) {
-            case 1 -> prices = enterPrices();
+            case 1 -> prices = enterPrices(scanner);
             case 2 -> printMinMaxAverage(prices);
             case 3 -> printSortedPrices(prices);
             case 4 -> findBestChargingTime(prices);
-            default -> System.out.print("\nOgiltigt val.");
+            default -> {
+
+            }
             }
         } catch (NumberFormatException e) {
-            System.out.print("\nOgiltig inmatning.");
+
         }
     } while (true);
 
-        System.out.print("\nProgrammet avslutas...");
+
 
     }
 }
