@@ -79,7 +79,7 @@ public class App {
         }
 
         for (int i = 0; i < prices.length; i++) {
-            System.out.printf("%d-%d: %d öre/kWh\n", sortedHours[i], sortedHours[i] + 1, sortedPrices[i]);
+            System.out.printf("%02d-%02d %d öre\n", sortedHours[i], sortedHours[i] + 1, sortedPrices[i]);
         }
     }
 
@@ -97,10 +97,10 @@ public class App {
             }
         }
 
-        int averagePrice = bestTotalPrice / 4;
+        float averagePrice = (float) bestTotalPrice / 4;
 
-        System.out.printf("Påbörja laddning klockan: %d:00\n", bestStartTime);
-        System.out.printf("Medelpris 4h: %d\n", averagePrice);
+        System.out.printf("Påbörja laddning klockan %d\n", bestStartTime);
+        System.out.printf("Medelpris 4h: %.1f öre/kWh\n", averagePrice);
     }
 
 
