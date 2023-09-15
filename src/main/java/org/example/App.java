@@ -43,8 +43,8 @@ public class App {
 
         double averagePrice = (double) total / prices.length;
 
-        System.out.printf("Lägsta pris: %2d-%2d, %d öre/kWh\n" ,minHour, minHour + 1, minPrice );
-        System.out.printf("Högsta pris: %2d-%2d, %d öre/kWh\n" ,maxHour, maxHour + 1, maxPrice);
+        System.out.printf("Lägsta pris: %02d-%02d, %d öre/kWh\n" ,minHour, minHour + 1, minPrice );
+        System.out.printf("Högsta pris: %02d-%02d, %d öre/kWh\n" ,maxHour, maxHour + 1, maxPrice);
         System.out.printf("Medelpris: %.2f öre/kWh\n", averagePrice);
 
 
